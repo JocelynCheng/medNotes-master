@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Speech Recognition</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="/manifest.json">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <script src="https://use.fontawesome.com/f061fecdbc.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="text-box" contenteditable="true"></div>
+    <i class="fa fa-microphone"></i>
+    <select id="voiceSelect"></select>
+  </div>
+  <audio class="sound" src="chime.mp3"></audio>
+  <script src="main.js" async></script>
+  <form id="frm1" action="/action_page.php">
+    Keyword: <br><input type="text" name="fname" value="normal physical"><br>
+    Definition: <br><textarea name="message" rows="10" cols="30">Well developed, well nourished, alert and cooperative, and appears to be in no acute distress.</textarea>
+  </form>
+
+  <p>Click "Try it" to display the value of each element in the form.</p>
+
+  <button onclick="myFunction()">Try it</button>
+
+  <p id="demo"></p>
+
+  <script src = "myFunction.js"></script>
+
+
+</body>
+</html>
