@@ -10,9 +10,10 @@ Speech recognition/notetaking webapp for medical purposes.
 Project timeline
 
 10/17/2018
-Bugfix:
+Project instantiation, basic html/css creation of project with working buttons.
 
 10/21/2018
+Speech recognition portion of project added.
 
 10/28/2018
 added basic functionality/voice control over things
