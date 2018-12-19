@@ -127,7 +127,7 @@ class App {
       .map(result => result.transcript)
       .join('');
 
-      this.paragraph.textContent = "rhythmic muscle contractions and muscle spaz";
+      this.paragraph.textContent = speechToText;
 
 
       //checking to see if the user is done speaking
