@@ -22,6 +22,8 @@ added basic functionality/voice control over things
 11/12/2018
 
 11/19/2018
+- ask about use feedback and submit survey
+
 
 11/26/2018
 
@@ -114,14 +116,18 @@ class App {
 
   dictate() {
     console.log('dictating...');
+
     this.recognition.start();
     this.recognition.onresult = (event) => {
       const speechToText = Array.from(event.results)
+      //console.log('Speech to text')
+      //console.log(speechToText)
       .map(result => result[0])
+
       .map(result => result.transcript)
       .join('');
 
-      this.paragraph.textContent = speechToText;
+      this.paragraph.textContent = "rhythmic muscle contractions and muscle spaz";
 
 
       //checking to see if the user is done speaking
@@ -135,6 +141,8 @@ class App {
     };
     // this.recognition.onend = this.recognition.start
   }
+
+
 
   speak(action) {
     const utterThis = new SpeechSynthesisUtterance(action());
@@ -168,7 +176,12 @@ class App {
     if (speech.includes('Orange please set')){
       console.log('Inside the orange mango function...');
       this.mangoSet(speech);
+
+
+
     };
+
+
 
     if (speech.includes('open a url')) {
       const utterThis = new SpeechSynthesisUtterance('what URL do you want to open?');
@@ -191,7 +204,7 @@ class App {
     const time = new Date(Date.now());
     console.log(`the time is ${time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`);
     return `the time is ${time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`;
-  } 
+  }
 
   getDate() {
     const time = new Date(Date.now())
@@ -247,6 +260,11 @@ class App {
     });
   }
 */
+
+
+
+
+
   getWeather(speech) {
     self = this;
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[5]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`
@@ -281,7 +299,7 @@ class App {
       if (self.cachedWeather) {
         return;
       }
-      if (weather.cod === '404') {
+      if (weather.cod === '404') {5
         const utterThis = new SpeechSynthesisUtterance(`I cannot find the weather for ${speech.split(' ')[5]}`);
         self.setVoice(utterThis);
         self.synth.speak(utterThis);

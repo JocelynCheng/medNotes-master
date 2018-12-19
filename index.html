@@ -8,8 +8,11 @@
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="/manifest.json">
   <!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Times+New+Roman" rel="stylesheet">
   <script src="https://use.fontawesome.com/f061fecdbc.js"></script>
+
+
+
 </head>
 <body>
   <div class="container">
@@ -19,6 +22,8 @@
   </div>
   <audio class="sound" src="chime.mp3"></audio>
   <script src="main.js" async></script>
+
+<!--
   <form id="frm1" action="/action_page.php">
     Keyword: <br><input type="text" name="fname" value="normal physical"><br>
     Definition: <br><textarea name="message" rows="10" cols="30">Well developed, well nourished, alert and cooperative, and appears to be in no acute distress.</textarea>
@@ -26,12 +31,167 @@
 
   <p>Click "Try it" to display the value of each element in the form.</p>
 
-  <button onclick="myFunction()">Try it</button>
+
+  <button onclick="myFunction()">Submit</button>
+
+  <button onclick="myFunction2()">Stored Values</button>
+
+  <button onclick="clearResultsBox()">Clear</button>
 
   <p id="demo"></p>
 
+-->
   <script src = "myFunction.js"></script>
 
 
 </body>
+
+    <head>
+        <title>Add Edit Remove HTML Table Row</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+
+            .container{overflow: hidden}
+            .tab{float: left;}
+            .tab-2{margin-left: 50px}
+            .tab-2 input{display: block;margin-bottom: 10px}
+            tr{transition:all .25s ease-in-out}
+            tr:hover{background-color:#EEE;cursor: pointer}
+
+        </style>
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="tab tab-1">
+                <table id="table" border="1">
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Definition</th>
+                        <th>Date Added</th>
+                    </tr>
+                    <tr>
+                        <td>normal physical</td>
+                        <td>Well developed, well nourished, alert and cooperative, and appears to be in no acute distress.</td>
+                        <td>11/19/2018</td>
+                    </tr>
+                    <tr>
+                        <td>polyphagia</td>
+                        <td>excessive hunger and abnormally large intake of solids by mouth</td>
+                        <td>11/19/2018</td>
+                    </tr>
+                    <tr>
+                        <td>muscular epilepsy</td>
+                        <td>rhythmic muscle contractions and muscle spaz</td>
+                        <td>12/10/2018</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab tab-2">
+                Keyword :<input type="text" name="fname" id="fname">
+                Definition :<input type="text" name="lname" id="lname">
+                Date Added :<input type="number" name="age" id="age">
+
+                <button onclick="addHtmlTableRow();">Add</button>
+                <button onclick="editHtmlTbleSelectedRow();">Edit</button>
+                <button onclick="removeSelectedRow();">Remove</button>
+            </div>
+        </div>
+
+        <script>
+
+            var rIndex,
+                table = document.getElementById("table");
+
+            // check the empty input
+            function checkEmptyInput()
+            {
+                var isEmpty = false,
+                    fname = document.getElementById("fname").value,
+                    lname = document.getElementById("lname").value,
+                    age = document.getElementById("age").value;
+
+                if(fname === ""){
+                    alert("First Name Connot Be Empty");
+                    isEmpty = true;
+                }
+                else if(lname === ""){
+                    alert("Last Name Connot Be Empty");
+                    isEmpty = true;
+                }
+                else if(age === ""){
+                    alert("Age Connot Be Empty");
+                    isEmpty = true;
+                }
+                return isEmpty;
+            }
+
+            // add Row
+            function addHtmlTableRow()
+            {
+                // get the table by id
+                // create a new row and cells
+                // get value from input text
+                // set the values into row cell's
+                if(!checkEmptyInput()){
+                var newRow = table.insertRow(table.length),
+                    cell1 = newRow.insertCell(0),
+                    cell2 = newRow.insertCell(1),
+                    cell3 = newRow.insertCell(2),
+                    fname = document.getElementById("fname").value,
+                    lname = document.getElementById("lname").value,
+                    age = document.getElementById("age").value;
+
+                cell1.innerHTML = fname;
+                cell2.innerHTML = lname;
+                cell3.innerHTML = age;
+                // call the function to set the event to the new row
+                selectedRowToInput();
+            }
+            }
+
+            // display selected row data into input text
+            function selectedRowToInput()
+            {
+
+                for(var i = 1; i < table.rows.length; i++)
+                {
+                    table.rows[i].onclick = function()
+                    {
+                      // get the seected row index
+                      rIndex = this.rowIndex;
+                      document.getElementById("fname").value = this.cells[0].innerHTML;
+                      document.getElementById("lname").value = this.cells[1].innerHTML;
+                      document.getElementById("age").value = this.cells[2].innerHTML;
+                    };
+                }
+            }
+            selectedRowToInput();
+
+            function editHtmlTbleSelectedRow()
+            {
+                var fname = document.getElementById("fname").value,
+                    lname = document.getElementById("lname").value,
+                    age = document.getElementById("age").value;
+               if(!checkEmptyInput()){
+                table.rows[rIndex].cells[0].innerHTML = fname;
+                table.rows[rIndex].cells[1].innerHTML = lname;
+                table.rows[rIndex].cells[2].innerHTML = age;
+              }
+            }
+
+            function removeSelectedRow()
+            {
+                table.deleteRow(rIndex);
+                // clear input text
+                document.getElementById("fname").value = "";
+                document.getElementById("lname").value = "";
+                document.getElementById("age").value = "";
+            }
+        </script>
+
+    </body>
 </html>
