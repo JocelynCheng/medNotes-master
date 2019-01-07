@@ -4,10 +4,10 @@ Jocelyn Cheng
 
 ENGN1000 Gonsher + Fontaine
 
-Speech recognition/notetaking webapp for medical purposes.
+Speech recognition/notetaking webapp for medical purposes
 
 
-Project timeline
+Project timeline:
 
 10/17/2018
 Project instantiation, basic html/css creation of project with working buttons.
@@ -22,7 +22,7 @@ Project instantiation, basic html/css creation of project with working buttons.
 - Refine voice control mechanism, add support for multiple saved variables, add user interface for adding keywords / Both voice control to set feature and some sort of menu
 
 11/12/2018
-- Attempt to interface with EPIC notes / use EPIC API for patient data. EPIC (RIH), CSERNER (Boston Children’s Hospital) possibilities: 
+- Attempt to interface with EPIC notes / use EPIC API for patient data. EPIC (RIH), CSERNER (Boston Children’s Hospital) possibilities:
 
 11/19/2018
 - Spoiler support, better UI (clear and delete button for keywords, removal methods for keywords)
