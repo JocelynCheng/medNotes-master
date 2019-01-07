@@ -27,8 +27,6 @@ added basic functionality/voice control over things
 
 11/26/2018
 
-12/
-
 TODO:
 create Github master folder for project
 deploy React to Github-Pages
